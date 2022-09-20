@@ -8,11 +8,10 @@ import {
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import { Typography } from "@mui/material";
-import { image } from "../../public/muzzarela.png";
 export default function Producto() {
   const data = {
     nombre: "Pizza",
-    imagen: image,
+    imagen: "",
     description: "Pizza de muzzarela",
     ingredients: ["harina de trigo", "muzzarela", "aceituna", "oregano"],
     size: "8 porciones",
