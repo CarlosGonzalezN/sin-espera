@@ -1,9 +1,3 @@
-/* 
-          {data.ingredients.map((item) => {
-            return <ListItemText primary={item} />;
-
- */
-
 import * as React from "react";
 import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -12,9 +6,9 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import Image from "../../public/pizza.jpg";
 
 export default function MediaControlCard() {
+  const [cantidad, setCantidad] = React.useState(0);
   const theme = useTheme();
 
   const data = {
@@ -41,13 +35,9 @@ export default function MediaControlCard() {
           </Typography>
         </CardContent>
         <Box sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}>
-          <IconButton aria-label="previous">
-            {theme.direction === "rtl" ? "+" : "-"}
-          </IconButton>
-          <IconButton aria-label="play/pause">0</IconButton>
-          <IconButton aria-label="next">
-            {theme.direction === "rtl" ? "-" : "+"}
-          </IconButton>
+          <IconButton aria-label="previous">-</IconButton>
+          <IconButton aria-label="play/pause">{cantidad}</IconButton>
+          <IconButton aria-label="next">+</IconButton>
         </Box>
       </Box>
       <CardMedia />
