@@ -1,14 +1,22 @@
-import {
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Divider,
-} from "@mui/material";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
-import { Typography } from "@mui/material";
-export default function Producto() {
+/* 
+          {data.ingredients.map((item) => {
+            return <ListItemText primary={item} />;
+
+ */
+
+import * as React from "react";
+import { useTheme } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Image from "../../public/pizza.jpg";
+
+export default function MediaControlCard() {
+  const theme = useTheme();
+
   const data = {
     nombre: "Pizza",
     imagen: "",
@@ -17,38 +25,37 @@ export default function Producto() {
     size: "8 porciones",
     time: "10 min",
   };
-
   return (
-    <div></div>
-    /*     <div>
-      <Typography align="center" variant="h1">
-        {data.nombre}
-      </Typography>
-      <Typography align="center" variant="h6">
-        {data.description}
-      </Typography>
-
-      <Typography gutterBottom variant="body1">
-        lorem
-      </Typography>
-
-      <List component="nav" aria-label="cicle">
-        <ListItem button>
-          <ListItemIcon>
-            <AccountCircleIcon />
-          </ListItemIcon>
-          {data.ingredients.map((item) => {
-            return <ListItemText primary={item} />;
-          })}
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <AddShoppingCartIcon />
-          </ListItemIcon>
-          <ListItemText primary="Carrito" />
-        </ListItem>
-      </List>
-      <Divider />
-    </div> */
+    <Card sx={{ display: "flex" }}>
+      <Box sx={{ display: "flex", flexDirection: "column" }}>
+        <CardContent sx={{ flex: "1 0 auto" }}>
+          <Typography component="div" variant="h5">
+            {data.nombre}
+          </Typography>
+          <Typography
+            variant="subtitle1"
+            color="text.secondary"
+            component="div"
+          >
+            {data.description}
+          </Typography>
+        </CardContent>
+        <Box sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}>
+          <IconButton aria-label="previous">
+            {theme.direction === "rtl" ? "+" : "-"}
+          </IconButton>
+          <IconButton aria-label="play/pause">0</IconButton>
+          <IconButton aria-label="next">
+            {theme.direction === "rtl" ? "-" : "+"}
+          </IconButton>
+        </Box>
+      </Box>
+      <CardMedia
+        component="img"
+        sx={{ width: 151 }}
+        image={Image}
+        alt="Live from space album cover"
+      />
+    </Card>
   );
 }

@@ -14,13 +14,11 @@ export default function container() {
         justifyContent: "center",
         rowGap: 20,
         align: "center",
+        marginTop: 5,
       }}
     >
-      <Serch />
-      <Promotion />
       <Category />
       <Products />
-      <Carrousel />
     </Container>
   );
 }

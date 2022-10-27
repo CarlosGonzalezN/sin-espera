@@ -2,20 +2,17 @@ import { Container, Box, Grid } from "@mui/material";
 
 export default function Footer() {
   return (
-    <footer style={{ color: "gray", position: "fixed", bottom: 0 }}>
-      <Box>
-        <Container>
-          <div className="container-fluid">
-            <a
-              className="navbar-brand copyright"
-              href="https://officialrajdeepsingh.dev"
-            >
-              {" "}
-              <p> @Copyrights by Rajdeep Singh</p>{" "}
-            </a>
-          </div>
-        </Container>
-      </Box>
+    <footer className={styles.footer}>
+      <a
+        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Powered by{" "}
+        <span className={styles.logo}>
+          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+        </span>
+      </a>
     </footer>
   );
 }
