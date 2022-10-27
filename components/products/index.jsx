@@ -50,12 +50,7 @@ export default function MediaControlCard() {
           </IconButton>
         </Box>
       </Box>
-      <CardMedia
-        component="img"
-        sx={{ width: 151 }}
-        image={Image}
-        alt="Live from space album cover"
-      />
+      <CardMedia />
     </Card>
   );
 }
