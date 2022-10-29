@@ -9,7 +9,7 @@ export default function Home() {
   }
 
   useEffect(() => {
-    sleep(200);
+    sleep(5000);
     Router.push("/registrese");
   }, []);
 
