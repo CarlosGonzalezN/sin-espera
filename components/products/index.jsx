@@ -26,7 +26,7 @@ export default function MediaControlCard({ data }) {
   return (
     <>
       {data.map((data) => (
-        <Card sx={{ display: "flex", marginTop: 3 }}>
+        <Card sx={{ display: "flex", marginTop: 3 }} key={data.id}>
           <Box sx={{ display: "flex", flexDirection: "column" }}>
             <CardContent sx={{ flex: "1 0 auto" }}>
               <Typography component="div" variant="h5">

@@ -8,10 +8,7 @@ export default function Footer() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Powered by{" "}
-        <span className={styles.logo}>
-          <Image src="/icon.png" alt="Logo" width={72} height={16} />
-        </span>
+        Powered by <span className={styles.logo}>footer</span>
       </a>
     </footer>
   );

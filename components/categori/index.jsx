@@ -4,7 +4,10 @@ export default function Category({ dataCategoria }) {
   return (
     <>
       {dataCategoria.map((dataCategoria) => (
-        <Button sx={{ marginLeft: 10 }}> {dataCategoria.descripcion}</Button>
+        <Button sx={{ marginLeft: 10 }} key={dataCategoria.id}>
+          {" "}
+          {dataCategoria.descripcion}
+        </Button>
       ))}
     </>
   );
