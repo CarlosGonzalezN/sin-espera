@@ -6,7 +6,7 @@ export default function Category({ dataCategoria }) {
       {dataCategoria.map((dataCategoria) => (
         <Button sx={{ marginLeft: 10 }} key={dataCategoria.id}>
           {" "}
-          {dataCategoria.descripcion}
+          {dataCategoria.username}
         </Button>
       ))}
     </>
