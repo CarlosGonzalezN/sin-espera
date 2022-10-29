@@ -6,7 +6,7 @@ import {
   Promotion,
   Serch,
 } from "../../components";
-export default function container() {
+export default function container({ data, dataCategoria }) {
   return (
     <Container
       sx={{
@@ -17,8 +17,8 @@ export default function container() {
         marginTop: 5,
       }}
     >
-      <Category />
-      <Products />
+      <Category dataCategoria={dataCategoria} />
+      <Products data={data} />
     </Container>
   );
 }
