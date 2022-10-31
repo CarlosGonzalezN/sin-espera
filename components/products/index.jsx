@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "@mui/material/styles";
 
 import Image from "next/image";
@@ -8,17 +8,23 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-
+import { ProductModal } from "../index";
+import { CardActionArea } from "@mui/material";
 export default function MediaControlCard({ data }) {
   const [cantidad, setCantidad] = useState(0);
-  const theme = useTheme();
-  const handleClickRemove = () => {
-    if (cantidad === 0) {
-      setCantidad(0);
-    }
-    const result = cantidad - 1;
-    setCantidad(result);
+  const [openModal, setOpenModal] = useState(false);
+  const handleOplenModal = () => {
+    setOpenModal(true);
   };
+
+  const handleClickRemove = () => {
+    if (cantidad >= 0) {
+      return setCantidad(0);
+    } else {
+      setCantidad(cantidad - 1);
+    }
+  };
+
   const handleClickPlus = () => {
     const result = cantidad + 1;
     setCantidad(result);
@@ -30,24 +36,20 @@ export default function MediaControlCard({ data }) {
           <Box sx={{ display: "flex", flexDirection: "column" }}>
             <CardContent sx={{ flex: "1 0 auto" }}>
               <Typography component="div" variant="h5">
-                {data.title}
+                {data.Nombre}
               </Typography>
               <Typography
                 variant="subtitle1"
                 color="text.secondary"
                 component="div"
               >
-                {data.body}
+                {data.DescripcionCategoria}
               </Typography>
             </CardContent>
             <Box sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}>
-              <IconButton aria-label="previous" onClick={handleClickRemove}>
-                -
-              </IconButton>
-              <IconButton aria-label="play/pause">{cantidad}</IconButton>
-              <IconButton aria-label="next" onClick={handleClickPlus}>
-                +
-              </IconButton>
+              <Typography component="div" variant="h4">
+                ${data.Precio}
+              </Typography>
             </Box>
           </Box>
           <CardMedia
@@ -58,6 +60,7 @@ export default function MediaControlCard({ data }) {
           />
         </Card>
       ))}
+      <ProductModal openModal={openModal} />
     </>
   );
 }

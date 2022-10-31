@@ -7,10 +7,8 @@ export default function Products({ data, dataCategoria }) {
 }
 export async function getStaticProps() {
   try {
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-    const resCategoria = await fetch(
-      "https://jsonplaceholder.typicode.com/users"
-    );
+    const res = await fetch("http://localhost:3005/productos");
+    const resCategoria = await fetch("http://localhost:3005/categoria");
     const dataCategoria = await resCategoria.json();
     const data = await res.json();
     return {
