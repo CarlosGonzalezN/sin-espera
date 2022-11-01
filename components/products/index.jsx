@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useTheme } from "@mui/material/styles";
 
 import Image from "next/image";
 import Box from "@mui/material/Box";

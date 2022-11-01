@@ -1,9 +1,15 @@
 import Layout from "../../containers/loyout/layout";
 import Head from "next/head";
 import Container from "../../containers/container";
+import { Navb } from "../../components";
 
 export default function Products({ data, dataCategoria }) {
-  return <Container data={data} dataCategoria={dataCategoria} />;
+  return (
+    <>
+      {" "}
+      <Navb></Navb> <Container data={data} dataCategoria={dataCategoria} />
+    </>
+  );
 }
 export async function getStaticProps() {
   try {

@@ -1,12 +1,5 @@
 import { Container, Typography } from "@mui/material";
-import {
-  Carrousel,
-  Category,
-  Products,
-  Promotion,
-  Serch,
-} from "../../components";
-import styles from "../../styles/Home.module.css";
+import { Category, Products, Navb } from "../../components";
 export default function container({ data, dataCategoria }) {
   return (
     <Container>
