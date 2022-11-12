@@ -1,3 +1,5 @@
+import { FiberPinRounded } from "@material-ui/icons";
+
 export { default as Category } from "./categori/index";
 export { default as Promotion } from "./promotion/index";
 export { default as Products } from "./products/index";

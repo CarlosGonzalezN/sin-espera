@@ -10,7 +10,6 @@ export default function Home() {
 
   useEffect(() => {
     sleep(5000);
-    Router.push("/registrese");
   }, []);
 
   return (

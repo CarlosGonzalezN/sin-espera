@@ -1,14 +1,35 @@
 import { useState } from "react";
-import { Modal, Box, Typography } from "@mui/material";
+import { Modal, Box, Typography, Button } from "@mui/material";
 
 export default function productModal({ openModal }) {
   const [open, setOpen] = useState(openModal);
-  const handleClose = () => setOpen(false);
+  const [cantidad, setCantidad] = useState(0);
+  const handleCantidad = () => {
+    const result = cantidad + 1;
+    setCantidad(result);
+  };
+  const handreOnClose = () => {
+    return setOpen(false);
+  };
+  const handleCantidadRemove = () => {
+    if (cantidad < 1) {
+      return setCantidad(0);
+    }
+    setCantidad(cantidad - 1);
+  };
+
+  const handleSetLocalStorage = () => {
+    setOpen(false);
+    const test = localStorage.getItem("orden");
+    console.log(test);
+  };
   return (
     <Modal
       keepMounted
       open={open}
-      onClose={handleClose}
+      onClose={() => {
+        setOpen(false);
+      }}
       aria-labelledby="keep-mounted-modal-title"
       aria-describedby="keep-mounted-modal-description"
     >
@@ -26,11 +47,24 @@ export default function productModal({ openModal }) {
         }}
       >
         <Typography id="keep-mounted-modal-title" variant="h6" component="h2">
-          Text in a modal
+          Elija la cantidad
         </Typography>
-        <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-          Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-        </Typography>
+        <Box>
+          <Button onClick={handleCantidadRemove}>-</Button>
+          <Typography>{cantidad}</Typography>
+          <Button onClick={handleCantidad}>+</Button>
+        </Box>
+        <Button
+          variant="outlined"
+          color="error"
+          size="small"
+          onClick={handleSetLocalStorage}
+        >
+          Cancelar
+        </Button>
+        <Button variant="contained" sx={{ marginLeft: 3 }}>
+          Pedir
+        </Button>
       </Box>
     </Modal>
   );
